@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ADD EMPLOYEE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registrationForm">
+    <mat-vertical-stepper linear #stepper>
+      <mat-step formGroupName="personalDetails" [stepControl]="registrationForm.get('personalDetails')">
+        <ng-template matStepLabel>Personal Details</ng-template>
+        <app-personal-details [regForm]="registrationForm"></app-personal-details>
+      </mat-step>
+
+      <mat-step formGroupName="educationalDetails" [stepControl]="registrationForm.get('educationalDetails')">
+        <ng-template matStepLabel>Educational details</ng-template>
+        <app-education-details [regForm]="registrationForm"></app-education-details>
+        <!-- <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div> -->
+
+      </mat-step>
+      <mat-step formGroupName="professionalDetails" [stepControl]="registrationForm.get('professionalDetails')">
+        <ng-template matStepLabel>Professional experience</ng-template>
+        <app-professional-exprerience [regForm]="registrationForm"></app-professional-exprerience>
+        <!-- <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div> -->
+      </mat-step>
+
+      <mat-step formGroupName="socialDetails" [stepControl]="registrationForm.get('socialDetails')">
+        <ng-template matStepLabel>Social and Hobbies</ng-template>
+        <app-social [regForm]="registrationForm"></app-social>
+        <!-- <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div> -->
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <app-done [regForm]="registrationForm"></app-done>
+        <!-- <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div> -->
+      </mat-step>
+
+    </mat-vertical-stepper>
+  </form>
+
+
+</ion-content>

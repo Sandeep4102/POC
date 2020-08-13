@@ -1,0 +1,28 @@
+<div [formGroup]="regForm">
+
+  <div class="form-group" formGroupName="educationalDetails">
+    <label for="course">Course</label>
+    <input type="text" class="form-control" id="course" name="course" placeholder="" formControlName="course" />
+  </div>
+
+  <div class="form-group" formGroupName="educationalDetails">
+    <label for="college">College</label>
+    <input type="text" class="form-control" id="college" name="college" placeholder="" formControlName="college" />
+  </div>
+
+  <div class="form-group" formGroupName="educationalDetails">
+    <label for="year">Year</label>
+    <input type="text" class="form-control" id="year" name="year" placeholder="" formControlName="year" />
+  </div>
+
+  <div class="form-group" formGroupName="educationalDetails">
+    <label for="percentage">Percentage</label>
+    <input type="text" class="form-control" id="percentage" name="percentage" placeholder=""
+      formControlName="percentage" />
+  </div>
+
+</div>
+
+<button type="button" matStepperPrevious>Back</button>
+&nbsp;
+<button type="button" matStepperNext (click)="step2Submitted()">Next</button>

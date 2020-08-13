@@ -1,0 +1,22 @@
+<div [formGroup]="regForm">
+
+  <div class="form-group" formGroupName="socialDetails">
+    <label for="linkdin">Linkdin</label>
+    <input type="text" class="form-control" id="linkdin" name="linkdin" placeholder="" formControlName="linkdin" />
+  </div>
+
+  <div class="form-group" formGroupName="socialDetails">
+    <label for="facebook">Facebook</label>
+    <input type="text" class="form-control" id="facebook" name="facebook" placeholder="" formControlName="facebook" />
+  </div>
+
+  <div class="form-group" formGroupName="socialDetails">
+    <label for="github">Github</label>
+    <input type="text" class="form-control" id="github" name="github" placeholder="" formControlName="github" />
+  </div>
+
+</div>
+
+<button type="button" matStepperPrevious>Back</button>
+&nbsp;
+<button type="button" matStepperNext (click)="step3Submitted()">Next</button>
