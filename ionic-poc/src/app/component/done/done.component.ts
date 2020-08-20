@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { PhotoService } from '../../services/photo.service'
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class DoneComponent implements OnInit {
   public imageData: any = {}
 
   constructor(
-    private photo: PhotoService
+    private photo: PhotoService,
+    private alertController: AlertController
   ) {
 
 
@@ -31,13 +33,25 @@ export class DoneComponent implements OnInit {
       this.imageData = data.webviewPath
     })
     console.log(this.regForm.value, "value");
-    this.payload = {
-      employeeDetails: this.regForm.value,
+    this.payload = [{
+      detail : this.regForm.value,
       imageURL: this.imageData,
       counter: 1
-    }
+      }
+    ]
     localStorage.setItem('employeeDetails', JSON.stringify(this.payload))
-
+    this.presentAlert('Employee Added successfully')
   }
 
+
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      message: msg,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }
